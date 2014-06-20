@@ -103,6 +103,7 @@
 		66EA72F017EB2ECB009B8350 /* IEDController.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = IEDController.py; sourceTree = "<group>"; };
 		66EA72F217EB3B40009B8350 /* IEDSourceSelector.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = IEDSourceSelector.py; sourceTree = "<group>"; };
 		66EA72F417EC764B009B8350 /* installesdtodmg.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = installesdtodmg.sh; sourceTree = "<group>"; };
+		C471179819547ECD0070A682 /* IEDLog_test.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = IEDLog_test.py; path = AutoDMG/IEDLog_test.py; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				66EA72D417EB1586009B8350 /* AutoDMG */,
+				C471179919547ED90070A682 /* AutoDMG_Tests */,
 				66EA72CB17EB1586009B8350 /* Frameworks */,
 				66EA72CA17EB1586009B8350 /* Products */,
 			);
@@ -254,7 +256,31 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C471179919547ED90070A682 /* AutoDMG_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				C471179819547ECD0070A682 /* IEDLog_test.py */,
+			);
+			name = AutoDMG_Tests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXLegacyTarget section */
+		C471179419547E5D0070A682 /* AutoDMGTests */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = C471179719547E5D0070A682 /* Build configuration list for PBXLegacyTarget "AutoDMGTests" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			dependencies = (
+			);
+			name = AutoDMGTests;
+			passBuildSettingsInEnvironment = 1;
+			productName = AutoDMGTests;
+		};
+/* End PBXLegacyTarget section */
 
 /* Begin PBXNativeTarget section */
 		66EA72C817EB1585009B8350 /* AutoDMG */ = {
@@ -305,6 +331,7 @@
 			projectRoot = "";
 			targets = (
 				66EA72C817EB1585009B8350 /* AutoDMG */,
+				C471179419547E5D0070A682 /* AutoDMGTests */,
 			);
 		};
 /* End PBXProject section */
@@ -543,6 +570,39 @@
 			};
 			name = Release;
 		};
+		C471179519547E5D0070A682 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEBUGGING_SYMBOLS = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		C471179619547E5D0070A682 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -563,6 +623,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		C471179719547E5D0070A682 /* Build configuration list for PBXLegacyTarget "AutoDMGTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C471179519547E5D0070A682 /* Debug */,
+				C471179619547E5D0070A682 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
