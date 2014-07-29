@@ -319,7 +319,7 @@
 				ORGANIZATIONNAME = "University of Gothenburg";
 				TargetAttributes = {
 					66EA72C817EB1585009B8350 = {
-						DevelopmentTeam = HTKYE4A7HX;
+						DevelopmentTeam = 92593KALHU;
 					};
 				};
 			};
