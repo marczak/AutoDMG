@@ -26,9 +26,9 @@ except objc.nosuchclass_error:
 
 
 class IEDUtil(NSObject):
-    
+
     VERSIONPLIST_PATH = u"System/Library/CoreServices/SystemVersion.plist"
-    
+
     @classmethod
     def readSystemVersion_(cls, rootPath):
         plist = NSDictionary.dictionaryWithContentsOfFile_(os.path.join(rootPath, cls.VERSIONPLIST_PATH))
@@ -36,14 +36,14 @@ class IEDUtil(NSObject):
         version = plist[u"ProductUserVisibleVersion"]
         build = plist[u"ProductBuildVersion"]
         return (name, version, build)
-    
+
     @classmethod
     def getAppVersion(cls):
         bundle = NSBundle.mainBundle()
         version = bundle.objectForInfoDictionaryKey_(u"CFBundleShortVersionString")
         build = bundle.objectForInfoDictionaryKey_(u"CFBundleVersion")
         return (version, build)
-    
+
     @classmethod
     def resolvePath_(cls, path):
         """Expand symlinks and resolve aliases."""
@@ -52,11 +52,12 @@ class IEDUtil(NSObject):
             return os.path.abspath(fsref.as_pathname().decode(u"utf-8"))
         except MacOS.Error as e:
             return None
-    
+
     @classmethod
     def installESDPath_(cls, path):
         u"""Resolve aliases and return path to InstallESD."""
         path = cls.resolvePath_(path)
+        print cls
         if not path:
             return None
         if os.path.exists(os.path.join(path,
@@ -68,7 +69,7 @@ class IEDUtil(NSObject):
             return path
         else:
             return None
-    
+
     @classmethod
     def getPackageSize_(cls, path):
         p = subprocess.Popen([u"/usr/bin/du", u"-sk", path],
@@ -80,7 +81,7 @@ class IEDUtil(NSObject):
             return 0
         else:
             return int(out.split()[0]) * 1024
-    
+
     @classmethod
     def formatBytes_(cls, bytes):
         bytes = float(bytes)
@@ -89,14 +90,14 @@ class IEDUtil(NSObject):
             bytes /= 1000.0
             unitIndex += 1
         return u"%.1f %s" % (bytes, (u"bytes", u"kB", u"MB", u"GB", u"TB")[unitIndex])
-    
+
     @classmethod
     def findMountPoint_(cls, path):
         path = os.path.abspath(path)
         while not os.path.ismount(path):
             path = os.path.dirname(path)
         return path
-    
+
     @classmethod
     def getInstalledPkgSize_(cls, pkgPath):
         # For apps just return the size on disk.

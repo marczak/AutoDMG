@@ -104,6 +104,7 @@
 		66EA72F217EB3B40009B8350 /* IEDSourceSelector.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = IEDSourceSelector.py; sourceTree = "<group>"; };
 		66EA72F417EC764B009B8350 /* installesdtodmg.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = installesdtodmg.sh; sourceTree = "<group>"; };
 		C471179819547ECD0070A682 /* IEDLog_test.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = IEDLog_test.py; path = AutoDMG/IEDLog_test.py; sourceTree = "<group>"; };
+		D4E871F41959B93D001726C1 /* IEDUtil_test.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = IEDUtil_test.py; path = /Users/willjenkins/src/AutoDMG/AutoDMG/IEDUtil_test.py; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +260,7 @@
 		C471179919547ED90070A682 /* AutoDMG_Tests */ = {
 			isa = PBXGroup;
 			children = (
+				D4E871F41959B93D001726C1 /* IEDUtil_test.py */,
 				C471179819547ECD0070A682 /* IEDLog_test.py */,
 			);
 			name = AutoDMG_Tests;
@@ -314,7 +316,7 @@
 				ORGANIZATIONNAME = "University of Gothenburg";
 				TargetAttributes = {
 					66EA72C817EB1585009B8350 = {
-						DevelopmentTeam = 5KQ3D3FG5H;
+						DevelopmentTeam = HTKYE4A7HX;
 					};
 				};
 			};
@@ -631,6 +633,7 @@
 				C471179619547E5D0070A682 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
