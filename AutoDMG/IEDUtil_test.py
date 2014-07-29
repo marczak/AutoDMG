@@ -47,6 +47,7 @@ class UtilTests(unittest.TestCase):
     IEDUtil.FSResolveAliasFile = mock.MagicMock(side_effect=IEDUtil.MacOS.Error)
     self.assertIsNone(self.util.resolvePath_(u'/foo/bar'))
 
+
   def testInstallESDPath(self):
     IEDUtil = mock.MagicMock()
     IEDUtil.resolvePath_.return_value = 'some/other/path'
