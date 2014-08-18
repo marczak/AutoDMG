@@ -57,7 +57,6 @@ class IEDUtil(NSObject):
     def installESDPath_(cls, path):
         u"""Resolve aliases and return path to InstallESD."""
         path = cls.resolvePath_(path)
-        print cls
         if not path:
             return None
         if os.path.exists(os.path.join(path,
