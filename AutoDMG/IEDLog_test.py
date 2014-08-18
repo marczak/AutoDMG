@@ -8,7 +8,7 @@ class UtilTests(unittest.TestCase):
   def setUp(self):
     self.util = IEDLog.IEDLog
 
-  def addMessage_level_(self, message, level):
+  def testAddMessage_level_(self, message, level):
     logLine = IEDLogLine.alloc().initWithMessage_level_(message, level)
     self.logLines.append(logLine)
     if defaults.integerForKey_(u"LogLevel") >= level:
@@ -24,7 +24,7 @@ class UtilTests(unittest.TestCase):
 
   @LogException
   @IBAction
-  def displayLogWindow_(self, sender):
+  def testDisplayLogWindow_(self, sender):
     self.logAtBottom = True
     self.logTableView.scrollRowToVisible_(len(self.visibleLogLines) - 1)
     self.logWindow.makeKeyAndOrderFront_(self)
@@ -33,7 +33,7 @@ class UtilTests(unittest.TestCase):
 
   # Act on notification for log being scrolled by user.
 
-  def logViewScrolled_(self, notification):
+  def testLogViewScrolled_(self, notification):
     tableViewHeight = self.logTableView.bounds().size.height
     scrollView = self.logTableView.enclosingScrollView()
     scrollRect = scrollView.documentVisibleRect()
@@ -48,7 +48,7 @@ class UtilTests(unittest.TestCase):
 
   @LogException
   @IBAction
-  def setLevel_(self, sender):
+  def testSetLevel_(self, sender):
     self.visibleLogLines = [x for x in self.logLines if x.level() <= self.levelSelector.indexOfSelectedItem()]
     self.logAtBottom = True
     self.logTableView.reloadData()
@@ -60,7 +60,7 @@ class UtilTests(unittest.TestCase):
 
   @LogException
   @IBAction
-  def saveLog_(self, sender):
+  def testSaveLog_(self, sender):
     panel = NSSavePanel.savePanel()
     panel.setExtensionHidden_(False)
     panel.setAllowedFileTypes_([u"log", u"txt"])
@@ -102,10 +102,10 @@ class UtilTests(unittest.TestCase):
 
   # We're an NSTableViewDataSource.
 
-  def numberOfRowsInTableView_(self, tableView):
+  def testNumberOfRowsInTableView_(self, tableView):
     return len(self.visibleLogLines)
 
-  def tableView_objectValueForTableColumn_row_(self, tableView, column, row):
+  def testTableView_objectValueForTableColumn_row_(self, tableView, column, row):
     if column.identifier() == u"date":
       return self.visibleLogLines[row].date()
     elif column.identifier() == u"level":
