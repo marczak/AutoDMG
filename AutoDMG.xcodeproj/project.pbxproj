@@ -105,7 +105,6 @@
 		66EA72F417EC764B009B8350 /* installesdtodmg.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = installesdtodmg.sh; sourceTree = "<group>"; };
 		C4E4BAD019BE056B00705F1C /* IEDDMGHelper_test.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = IEDDMGHelper_test.py; path = AutoDMG/IEDDMGHelper_test.py; sourceTree = "<group>"; };
 		D41DDA9319A250E200A45CCA /* IEDPackage_test.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = IEDPackage_test.py; path = AutoDMG/IEDPackage_test.py; sourceTree = "<group>"; };
-		D4750BB719BE055900F2B220 /* IEDTemplate_test.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = IEDTemplate_test.py; path = AutoDMG/IEDTemplate_test.py; sourceTree = "<group>"; };
 		D4AAFA4F1987E4EE00462D9D /* testrunner.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = testrunner.sh; path = AutoDMG/testrunner.sh; sourceTree = "<group>"; };
 		D4E871F41959B93D001726C1 /* IEDUtil_test.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; name = IEDUtil_test.py; path = AutoDMG/IEDUtil_test.py; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -267,11 +266,6 @@
 				D4AAFA4F1987E4EE00462D9D /* testrunner.sh */,
 				D41DDA9319A250E200A45CCA /* IEDPackage_test.py */,
 				C4E4BAD019BE056B00705F1C /* IEDDMGHelper_test.py */,
-<<<<<<< HEAD
-				D4750BB719BE055900F2B220 /* IEDTemplate_test.py */,
-=======
-				C4E4BAD019BE056B00705F1C /* IEDDMGHelper_test.py */,
->>>>>>> FETCH_HEAD
 			);
 			name = AutoDMG_Tests;
 			sourceTree = "<group>";
