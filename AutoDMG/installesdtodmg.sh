@@ -121,11 +121,7 @@ echo "IED:WATCHLOG:START"
 for package; do
     echo "IED:PHASE:install $pkgnum:$package"
     let pkgnum++
-    if [[ $pkgnum -eq 1 ]]; then
-        echo "IED:MSG:Starting OS install"
-    else
-        echo "IED:MSG:Installing $(basename "$package")"
-    fi
+    echo "IED:MSG:Installing $(basename "$package")"
     if [[ "${package##*.}" == "app" ]]; then
         appname="${package##*/}"
         apppath="$sparsemount/Applications/$appname"
@@ -156,13 +152,20 @@ for package; do
             installer -verboseR -dumplog -pkg "$package" -target "$sparsemount"
             declare -i result=$?
             if [[ $result -ne 0 ]]; then
-                if [[ $pkgnum -eq 1 ]]; then
-                    pkgname="OS install"
-                else
-                    pkgname=$(basename "$package")
-                fi
-                echo "IED:FAILURE:$pkgname failed with return code $result"
+                echo "IED:FAILURE:$(basename "$package") failed with return code $result"
                 exit 102
+            fi
+            # Fix language choice on 10.10 (github issue #93).
+            if [[ $(sw_vers -productVersion | cut -d. -f2) -ge 10 ]]; then
+                if [[ $(basename "$package") == "OSInstall.mpkg" ]]; then
+                    if rawlang=$(/usr/libexec/PlistBuddy -c "print :AppleLanguages:0" /Library/Preferences/.GlobalPreferences.plist 2> /dev/null); then
+                        lang=$(python -c "from Foundation import NSLocale; print NSLocale.canonicalLanguageIdentifierFromString_('$rawlang')")
+                        echo "LANGUAGE=$lang" > "$sparsemount/private/var/log/CDIS.custom"
+                        echo "IED:MSG:Setup Assistant language set to$lang"
+                    else
+                        echo "IED:MSG:Failed to retrieve language preference, letting Setup Assistant default to English"
+                    fi
+                fi
             fi
         fi
     fi
