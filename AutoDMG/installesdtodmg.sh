@@ -173,6 +173,16 @@ done
 # Stop watching /var/log/install.log.
 echo "IED:WATCHLOG:STOP"
 
+# Write imageinfo.plist
+imageinfo="$sparsemount/etc/imageinfo.plist"
+defaults write "$imageinfo" ImageVersion -string $(date +%Y%m%d%H%M)
+defaults write "$imageinfo" ImageMethod -string AutoDMG
+for package; do
+  defaults write "$imageinfo" ImagePackages -array-add "$(basename $package)"
+done
+chmod 0644 "$imageinfo"
+chown 0:0 "$imageinfo"
+
 # Copy template.
 mkdir -p "$sparsemount/private/var/log"
 rm -f "$sparsemount/private/var/log"/*.adtmpl
